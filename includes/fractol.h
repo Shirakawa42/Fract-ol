@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:33:32 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/25 15:48:38 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/26 13:14:49 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 # include <mlx.h>
 # include "../srcs/libft/libft.h"
+# include <stdlib.h>
 
 typedef struct	s_mlx
 {
@@ -26,14 +27,12 @@ typedef struct	s_mlx
 	char	*data_addr;
 	void	*img;
 	int		idgaf;
+	float	zoom;
+	int		it;
+	float	x1;
+	float	x2;
+	float	y1;
+	float	y2;
 }				t_mlx;
-
-typedef struct	s_frac
-{
-	int		x1;
-	int		y1;
-	int		x2;
-	int		y2;
-}				t_frac;
 
 #endif
