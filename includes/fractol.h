@@ -27,12 +27,24 @@ typedef struct	s_mlx
 	char	*data_addr;
 	void	*img;
 	int		idgaf;
-	float	zoom;
-	int		it;
+	float	it;
+	float	x;
+	float	y;
 	float	x1;
 	float	x2;
 	float	y1;
 	float	y2;
+	float	zoom;
+	float	cr;
+	float	ci;
+	float	zr;
+	float	zi;
+	float	tmp;
+	int		image_x;
+	int		image_y;
+	int		xx;
+	int		yy;
+	int		i;
 }				t_mlx;
 
 #endif
