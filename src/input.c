@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:51:12 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 15:45:07 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:25:40 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,14 @@ int		keyboard_input(int keycode, t_mlx *truc)
 		truc->s = 2;
 	if (keycode == 85)
 		truc->s = 3;
+	if (keycode == 126)
+		truc->xrotate += 5;
+	if (keycode == 125)
+		truc->xrotate -= 5;
+	if (keycode == 123)
+		truc->yrotate -= 5;
+	if (keycode == 124)
+		truc->yrotate += 5;
 	reload(truc);
 	return (0);
 }

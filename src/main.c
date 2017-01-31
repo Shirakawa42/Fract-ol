@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:37:13 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 14:22:58 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:04:46 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int		main(int ac, char **av)
 
 	if ((smlx = (t_mlx*)malloc(sizeof(t_mlx))) == 0)
 		return (-1);
+	smlx->xrotate = 0;
+	smlx->yrotate = 0;
+	smlx->zrotate = 0;
 	smlx->which = 0;
 	smlx->s = 1;
 	if (ac == 2 && ft_strcmp(av[1], "mandelbrot") == 0)

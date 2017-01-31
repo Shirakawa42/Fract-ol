@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:32:08 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 15:37:29 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:25:08 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ void		julia(t_mlx *smlx)
 				< 4 && smlx->i < (int)smlx->it)
 				julia_while(smlx);
 			if (smlx->i != (int)smlx->it)
-				*(unsigned *)(smlx->data_addr + (smlx->yy * smlx->size) +
-					(smlx->xx * smlx->bpx / 8)) = palet(smlx->i, smlx);
-			smlx->yy++;
+			{
+				xyz(smlx->xx, smlx->yy, smlx);
+				pixel((int)smlx->tmpx, (int)smlx->tmpy, smlx);
+			}
+				smlx->yy++;
 		}
 		smlx->xx++;
 	}

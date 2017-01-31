@@ -6,14 +6,25 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:55:41 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 16:58:52 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 17:24:09 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
+#include <math.h>
 
-void	matrice_ator(t_mlx *truc, float x, float y, float z)
+void		pixel(int x, int y, t_mlx *smlx)
 {
+	if (x < 800 && x > 0 && y < 500 && y > 0)
+		*(unsigned *)(smlx->data_addr + (y * smlx->size) +
+			(x * smlx->bpx / 8)) = palet(smlx->i, smlx);
+}
+
+void	matrice_ator(t_mlx *truc, float x, float y)
+{
+	float	z;
+
+	z = 0;
 	truc->tmpx = x;
 	truc->tmpy = y * cos(truc->rotx) + z * -sin(truc->rotx);
 	truc->tmpz = y * sin(truc->rotx) + z * cos(truc->rotx);
@@ -25,25 +36,10 @@ void	matrice_ator(t_mlx *truc, float x, float y, float z)
 	truc->tmpz = z;
 }
 
-void	xyz(t_mlx *truc)
+void	xyz(int x, int y, t_mlx *truc)
 {
-	int		x;
-	int		y;
-
 	truc->rotx = truc->xrotate * 0.0174533;
 	truc->roty = truc->yrotate * 0.0174533;
 	truc->rotz = truc->zrotate * 0.0174533;
-	y = 0;
-	truc->fat = 0;
-	while (y < truc->nby)
-	{
-		x = 0;
-		while (x < truc->nbx)
-		{
-			matrice_ator(truc, x, y);
-			x++;
-			truc->fat++;
-		}
-		y++;
-	}
+	matrice_ator(truc, x, y);
 }
