@@ -6,7 +6,7 @@
 #    By: zadrien <zadrien@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 20:45:05 by zadrien           #+#    #+#              #
-#    Updated: 2017/01/25 16:08:06 by lvasseur         ###   ########.fr        #
+#    Updated: 2017/01/31 11:35:14 by lvasseur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,19 @@
 
 NAME = fractol
 
-LIB = -L srcs/libft/ -lft
+LIB = -L src/libft/ -lft
 
-LIBFT = srcs/libft/libft.a
+LIBFT = src/libft/libft.a
 
-C_DIR = srcs/
+C_DIR = src/
 
-SRCS = main.c
+SRCS = main.c mandelbrot.c julia.c input.c
 
 SRC = $(addprefix $(C_DIR), $(SRCS))
 
 OBJ = $(SRCS:.c=.o)
 
-INC = -I includes -I srcs/libft/
+INC = -I includes -I src/libft/
 
 all : $(NAME)
 
@@ -34,13 +34,13 @@ $(NAME): $(OBJ) $(LIBFT)
 	gcc -Wall -Wextra -Werror $^ -o $@ $(LIB) -lmlx -framework OpenGL -framework AppKit
 
 $(LIBFT):
-	make -C srcs/libft/
+	make -C src/libft/
 
 $(OBJ) : $(SRC)
 	gcc -c -Wall -Wextra -Werror $^ $(INC)
 
 clean :
-	make clean -C srcs/libft/
+	make clean -C src/libft/
 	rm -f $(OBJ)
 
 fclean : clean
