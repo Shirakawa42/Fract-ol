@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:33:32 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 11:35:56 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 15:46:31 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,44 +20,46 @@
 
 typedef struct	s_mlx
 {
-	void	*win;
-	void	*mlx;
-	int		bpx;
-	int		size;
-	char	*data_addr;
-	void	*img;
-	int		idgaf;
-	float	it;
-	float	x;
-	float	y;
-	float	x1;
-	float	x2;
-	float	y1;
-	float	y2;
-	float	zoom;
-	float	cr;
-	float	ci;
-	float	cijulia;
-	float	zr;
-	float	zi;
-	float	tmp;
-	int		image_x;
-	int		image_y;
-	int		xx;
-	int		yy;
-	int		i;
-	int		which;
+	void		*win;
+	void		*mlx;
+	int			bpx;
+	int			size;
+	char		*data_addr;
+	void		*img;
+	int			idgaf;
+	double		it;
+	double		x;
+	double		y;
+	double		x1;
+	double		x2;
+	double		y1;
+	double		y2;
+	double		zoom;
+	double		cr;
+	double		ci;
+	double		cijulia;
+	double		zr;
+	double		zi;
+	double		tmp;
+	int			image_x;
+	int			image_y;
+	int			xx;
+	int			yy;
+	int			i;
+	int			which;
+	int			s;
 }				t_mlx;
 
-void	mandelbrot_init(t_mlx *truc);
-void	mandelbrot(t_mlx *smlx);
-void	reload(t_mlx *truc);
-int		mouse_input(int keycode, int x, int y, t_mlx *truc);
-int		keyboard_input(int keycode, t_mlx *truc);
-int		mouse_motion(int x, int y, t_mlx *truc);
-void	julia_init(t_mlx *truc);
-void	julia(t_mlx *smlx);
-void	buddhabrot_init(t_mlx *truc);
-void	buddhabrot(t_mlx *smlx);
+void			mandelbrot_init(t_mlx *truc);
+void			mandelbrot(t_mlx *smlx);
+void			reload(t_mlx *truc);
+int				mouse_input(int keycode, int x, int y, t_mlx *truc);
+int				keyboard_input(int keycode, t_mlx *truc);
+int				mouse_motion(int x, int y, t_mlx *truc);
+void			julia_init(t_mlx *truc);
+void			julia(t_mlx *smlx);
+void			burning_ship(t_mlx *smlx);
+void			burning_ship_init(t_mlx *truc);
+int				palet(int i, t_mlx *truc);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:31:17 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/30 15:43:13 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 14:23:37 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void		mandelbrot(t_mlx *smlx)
 				mandelbrot_while(smlx);
 			if (smlx->i != (int)smlx->it)
 				*(unsigned *)(smlx->data_addr + (smlx->yy * smlx->size) +
-					(smlx->xx * smlx->bpx / 8)) = 0x0000FFFF * (int)smlx->i *
-					600;
+					(smlx->xx * smlx->bpx / 8)) = palet(smlx->i, smlx);
 			smlx->yy++;
 		}
 		smlx->xx++;

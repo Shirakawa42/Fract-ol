@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:51:12 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/30 14:28:40 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 15:45:07 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	reload(t_mlx *truc)
 		mandelbrot(truc);
 	if (truc->which == 2)
 		julia(truc);
+	if (truc->which == 3)
+		burning_ship(truc);
 }
 
 int		mouse_input(int keycode, int x, int y, t_mlx *truc)
@@ -34,7 +36,7 @@ int		mouse_input(int keycode, int x, int y, t_mlx *truc)
 	if (keycode == 4 && truc->zoom < 1500000000)
 	{
 		truc->zoom *= 1.3;
-		truc->it *= 1.2;
+		truc->it *= 1.25;
 		truc->x1 = xtmp - (x / truc->zoom);
 		truc->y1 = ytmp - (y / truc->zoom);
 		reload(truc);
@@ -42,7 +44,7 @@ int		mouse_input(int keycode, int x, int y, t_mlx *truc)
 	if (keycode == 5)
 	{
 		truc->zoom *= 0.7;
-		truc->it *= 0.8;
+		truc->it *= 0.75;
 		truc->x1 = xtmp - (x / truc->zoom);
 		truc->y1 = ytmp - (y / truc->zoom);
 		reload(truc);
@@ -58,6 +60,12 @@ int		keyboard_input(int keycode, t_mlx *truc)
 		exit(0);
 		return (0);
 	}
+	if (keycode == 83)
+		truc->s = 1;
+	if (keycode == 84)
+		truc->s = 2;
+	if (keycode == 85)
+		truc->s = 3;
 	reload(truc);
 	return (0);
 }
@@ -68,9 +76,8 @@ int		mouse_motion(int x, int y, t_mlx *truc)
 	y = y - 250;
 	if (truc->which == 2)
 	{
-		truc->cijulia = (float)x / 400;
+		truc->cijulia = (float)x / (truc->zoom * 5);
 		reload(truc);
 	}
 	return (0);
 }
-

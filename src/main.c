@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:37:13 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/30 13:41:22 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/01/31 14:22:58 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,30 @@ int		init_mlx(t_mlx *smlx)
 	return (0);
 }
 
+void	main_mandelbrot(t_mlx *smlx)
+{
+	smlx->which = 1;
+	init_mlx(smlx);
+	mandelbrot_init(smlx);
+	mlx_loop(smlx->mlx);
+}
+
+void	main_julia(t_mlx *smlx)
+{
+	smlx->which = 2;
+	init_mlx(smlx);
+	julia_init(smlx);
+	mlx_loop(smlx->mlx);
+}
+
+void	main_burning_ship(t_mlx *smlx)
+{
+	smlx->which = 3;
+	init_mlx(smlx);
+	burning_ship_init(smlx);
+	mlx_loop(smlx->mlx);
+}
+
 int		main(int ac, char **av)
 {
 	t_mlx	*smlx;
@@ -32,23 +56,17 @@ int		main(int ac, char **av)
 	if ((smlx = (t_mlx*)malloc(sizeof(t_mlx))) == 0)
 		return (-1);
 	smlx->which = 0;
+	smlx->s = 1;
 	if (ac == 2 && ft_strcmp(av[1], "mandelbrot") == 0)
-	{
-		smlx->which = 1;
-		init_mlx(smlx);
-		mandelbrot_init(smlx);
-		mlx_loop(smlx->mlx);
-	}
+		main_mandelbrot(smlx);
 	else if (ac == 2 && ft_strcmp(av[1], "julia") == 0)
-	{
-		smlx->which = 2;
-		init_mlx(smlx);
-		julia_init(smlx);
-		mlx_loop(smlx->mlx);
-	}
+		main_julia(smlx);
+	else if (ac == 2 && ft_strcmp(av[1], "burning_ship") == 0)
+		main_burning_ship(smlx);
 	else
 	{
-		ft_putstr("usage: ./fractol \"mandelbrot\" or \"julia\"\n");
+		ft_putstr("usage: ./fractol \"mandelbrot\" or ");
+		ft_putstr("\"julia\" or \"burning_ship\"\n");
 		exit(0);
 	}
 	return (0);

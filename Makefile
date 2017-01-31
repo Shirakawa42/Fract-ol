@@ -6,7 +6,7 @@
 #    By: zadrien <zadrien@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/26 20:45:05 by zadrien           #+#    #+#              #
-#    Updated: 2017/01/31 11:35:14 by lvasseur         ###   ########.fr        #
+#    Updated: 2017/01/31 14:31:09 by lvasseur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT = src/libft/libft.a
 
 C_DIR = src/
 
-SRCS = main.c mandelbrot.c julia.c input.c
+SRCS = main.c mandelbrot.c julia.c burning_ship.c input.c palets.c
 
 SRC = $(addprefix $(C_DIR), $(SRCS))
 
