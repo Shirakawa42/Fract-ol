@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:37:13 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 17:04:46 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 12:45:36 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,9 @@ int		main(int ac, char **av)
 	smlx->yrotate = 0;
 	smlx->zrotate = 0;
 	smlx->which = 0;
+	smlx->xpadding = 0;
+	smlx->ypadding = 0;
+	smlx->motion = 1;
 	smlx->s = 1;
 	if (ac == 2 && ft_strcmp(av[1], "mandelbrot") == 0)
 		main_mandelbrot(smlx);

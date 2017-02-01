@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:55:41 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 11:56:37 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:09:34 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 void	pixel(int x, int y, t_mlx *smlx)
 {
-	if (x < 800 && x > 0 && y < 500 && y > 0)
-		*(unsigned *)(smlx->data_addr + (y * smlx->size) +
-			(x * smlx->bpx / 8)) = palet(smlx->i, smlx);
+	if (x + smlx->xpadding < 800 && x + smlx->xpadding > 0 && y +
+			smlx->ypadding < 500 && y + smlx->ypadding > 0)
+		*(unsigned *)(smlx->data_addr + ((y + smlx->ypadding) * smlx->size) +
+			((x + smlx->xpadding) * smlx->bpx / 8)) = smlx->color;
 }
 
 void	matrice_ator(t_mlx *truc, float x, float y)
 {
 	float	z;
 
-	z = 0;
+	z = -truc->i * 2;
 	truc->tmpx = x;
 	truc->tmpy = y * cos(truc->rotx) + z * -sin(truc->rotx);
 	truc->tmpz = y * sin(truc->rotx) + z * cos(truc->rotx);

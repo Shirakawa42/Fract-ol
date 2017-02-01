@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:51:12 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 17:25:40 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 14:59:17 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,26 @@ int		mouse_input(int keycode, int x, int y, t_mlx *truc)
 	return (0);
 }
 
+void	keyboard_input2(int keycode, t_mlx *truc)
+{
+	if (keycode == 13)
+		truc->ypadding -= 5;
+	if (keycode == 1)
+		truc->ypadding += 5;
+	if (keycode == 0)
+		truc->xpadding -= 5;
+	if (keycode == 2)
+		truc->xpadding += 5;
+	if (keycode == 82)
+	{
+		if (truc->motion == 1)
+			truc->motion = 0;
+		else
+			truc->motion = 1;
+		truc->cijulia = 0;
+	}
+}
+
 int		keyboard_input(int keycode, t_mlx *truc)
 {
 	if (keycode == 53)
@@ -74,6 +94,7 @@ int		keyboard_input(int keycode, t_mlx *truc)
 		truc->yrotate -= 5;
 	if (keycode == 124)
 		truc->yrotate += 5;
+	keyboard_input2(keycode, truc);
 	reload(truc);
 	return (0);
 }
@@ -82,9 +103,9 @@ int		mouse_motion(int x, int y, t_mlx *truc)
 {
 	x = x - 400;
 	y = y - 250;
-	if (truc->which == 2)
+	if (truc->which == 2 && truc->motion == 1)
 	{
-		truc->cijulia = (float)x / (truc->zoom * 5);
+		truc->cijulia = (float)x / ((truc->zoom / 2) + 350);
 		reload(truc);
 	}
 	return (0);

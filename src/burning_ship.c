@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 14:33:49 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 11:57:11 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 13:12:40 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void		burning_ship(t_mlx *smlx)
 			if (smlx->i != (int)smlx->it)
 			{
 				xyz(smlx->xx, smlx->yy, smlx);
+				smlx->color = palet(smlx);
 				pixel((int)smlx->tmpx, (int)smlx->tmpy, smlx);
 			}
 			smlx->yy++;

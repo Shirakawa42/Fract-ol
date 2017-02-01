@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:31:17 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 17:24:55 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 14:15:12 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	mandelbrot_while(t_mlx *smlx)
 	smlx->zr = smlx->zr * smlx->zr -
 		smlx->zi * smlx->zi + smlx->cr;
 	smlx->zi = 2 * smlx->zi * smlx->tmp + smlx->ci;
-	smlx->i++;
+	smlx->i += 1;
 }
 
 void		mandelbrot(t_mlx *smlx)
@@ -35,11 +35,12 @@ void		mandelbrot(t_mlx *smlx)
 			smlx->zi = 0;
 			smlx->i = 0;
 			while (smlx->zr * smlx->zr + smlx->zi * smlx->zi
-				< 4 && smlx->i < (int)smlx->it)
+				< 4 && (int)smlx->i < (int)smlx->it)
 				mandelbrot_while(smlx);
-			if (smlx->i != (int)smlx->it)
+			if ((int)smlx->i != (int)smlx->it)
 			{
 				xyz(smlx->xx, smlx->yy, smlx);
+				smlx->color = palet(smlx);
 				pixel((int)smlx->tmpx, (int)smlx->tmpy, smlx);
 			}
 			smlx->yy++;
@@ -56,7 +57,7 @@ void		mandelbrot_init(t_mlx *truc)
 	truc->y1 = -1.6;
 	truc->y2 = 1.2;
 	truc->zoom = 150;
-	truc->it = 30;
+	truc->it = 35;
 	truc->image_x = 800;
 	truc->image_y = 500;
 	mandelbrot(truc);
