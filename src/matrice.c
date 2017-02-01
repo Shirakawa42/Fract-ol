@@ -6,14 +6,14 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 16:55:41 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 17:24:09 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 11:56:37 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 #include <math.h>
 
-void		pixel(int x, int y, t_mlx *smlx)
+void	pixel(int x, int y, t_mlx *smlx)
 {
 	if (x < 800 && x > 0 && y < 500 && y > 0)
 		*(unsigned *)(smlx->data_addr + (y * smlx->size) +

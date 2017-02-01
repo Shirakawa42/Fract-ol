@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:32:08 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/01/31 17:25:08 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 11:57:32 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		julia(t_mlx *smlx)
 				xyz(smlx->xx, smlx->yy, smlx);
 				pixel((int)smlx->tmpx, (int)smlx->tmpy, smlx);
 			}
-				smlx->yy++;
+			smlx->yy++;
 		}
 		smlx->xx++;
 	}
