@@ -6,13 +6,13 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/31 14:18:11 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 16:49:23 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:50:50 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	mouse_input3(int keycode, t_mlx *truc)
+void	mouse_input3(t_mlx *truc)
 {
 	if (truc->which == 3)
 	{
@@ -49,7 +49,7 @@ void	mouse_input2(int keycode, t_mlx *truc)
 			burning_ship_init(truc);
 		}
 		else if (truc->which >= 3)
-			mouse_input3(keycode, truc);
+			mouse_input3(truc);
 	}
 }
 
