@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:33:32 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 15:03:23 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:46:53 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <mlx.h>
 # include "../libft/libft.h"
 # include <stdlib.h>
+# include <math.h>
 
 typedef struct	s_mlx
 {
@@ -63,6 +64,11 @@ typedef struct	s_mlx
 	int			color;
 }				t_mlx;
 
+void			mouse_input2(int keycode, t_mlx *truc);
+void			main_julia(t_mlx *smlx);
+int				init_mlx(t_mlx *smlx);
+void			sierpinski(t_mlx *smlx);
+void			sierpinski_init(t_mlx *truc);
 void			mandelbrot_init(t_mlx *truc);
 void			mandelbrot(t_mlx *smlx);
 void			reload(t_mlx *truc);

@@ -6,25 +6,11 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/30 12:51:12 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 14:59:17 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 16:46:36 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
-
-void	reload(t_mlx *truc)
-{
-	mlx_destroy_image(truc->mlx, truc->img);
-	truc->img = mlx_new_image(truc->mlx, 800, 500);
-	truc->data_addr = mlx_get_data_addr(truc->img,
-		&truc->bpx, &truc->size, &truc->idgaf);
-	if (truc->which == 1)
-		mandelbrot(truc);
-	if (truc->which == 2)
-		julia(truc);
-	if (truc->which == 3)
-		burning_ship(truc);
-}
 
 int		mouse_input(int keycode, int x, int y, t_mlx *truc)
 {
@@ -49,6 +35,7 @@ int		mouse_input(int keycode, int x, int y, t_mlx *truc)
 		truc->y1 = ytmp - (y / truc->zoom);
 		reload(truc);
 	}
+	mouse_input2(keycode, truc);
 	return (0);
 }
 
