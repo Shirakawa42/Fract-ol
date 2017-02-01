@@ -6,7 +6,7 @@
 /*   By: lvasseur <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/25 15:33:32 by lvasseur          #+#    #+#             */
-/*   Updated: 2017/02/01 14:30:57 by lvasseur         ###   ########.fr       */
+/*   Updated: 2017/02/01 15:03:23 by lvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define FRACTOL_H
 
 # include <mlx.h>
-# include "../src/libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 
 typedef struct	s_mlx
